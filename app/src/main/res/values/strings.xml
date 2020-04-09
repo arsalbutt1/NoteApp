@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Note App</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="note_title">Enter Title</string>
+    <string name="note_body">Enter Note</string>
+    <string name="item_note">The Note</string>
+    <string name="item_desc">Note Description</string>
+
+</resources>
