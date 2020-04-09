@@ -1,2 +1,2 @@
 # NoteApp
-Please read the README section for details of this project!
+I'm going to explain what I've done in this project, shortly.
