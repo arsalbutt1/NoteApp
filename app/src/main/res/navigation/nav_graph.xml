@@ -26,6 +26,8 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/actionAddNote"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit" />
     </fragment>
 </navigation>
