@@ -9,7 +9,7 @@ import com.example.NoteApp.db.NoteDatabase
 import kotlinx.coroutines.launch
 
 
-class MainFragViewModel(application: Application):AndroidViewModel(application) {
+class ViewModel(application: Application):AndroidViewModel(application) {
     val TAG = "ViewModel"
     private val noteRepo: theRepository
     val liveNote:LiveData<List<Note>>

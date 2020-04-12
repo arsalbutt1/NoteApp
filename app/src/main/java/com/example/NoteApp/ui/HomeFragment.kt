@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.NoteApp.MainFragViewModel
+import com.example.NoteApp.ViewModel
 
 import com.example.NoteApp.R
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -36,10 +36,10 @@ class HomeFragment : Fragment() {
         recycler_view.setHasFixedSize(true)
         recycler_view.layoutManager = StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL)
 
-        val usermodel = ViewModelProvider(this).get(MainFragViewModel::class.java)
-        usermodel.liveNote.observe(this, Observer {
-            Log.e(TAG, usermodel.liveNote.value.toString())
-            val list = usermodel.liveNote.value
+        val userModel = ViewModelProvider(this).get(ViewModel::class.java)
+        userModel.liveNote.observe(this, Observer {
+            Log.e(TAG, userModel.liveNote.value.toString())
+            val list = userModel.liveNote.value
             list?.let {
                 recycler_view.adapter = NotesAdapter(list)
             }

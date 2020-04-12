@@ -11,7 +11,7 @@ class NotesViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
     private val tvTitle = itemView.text_view_title
     private val tvNote = itemView.text_view_note
 
-    fun clickon(currentItem: Note){
+    fun clickOn(currentItem: Note){
 
         tvTitle.text = currentItem.title
         tvNote.text = currentItem.note

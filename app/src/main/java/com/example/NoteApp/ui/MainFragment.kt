@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
-import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.example.NoteApp.MainFragViewModel
+import com.example.NoteApp.ViewModel
 import com.example.NoteApp.R
 import com.example.NoteApp.db.Note
 import kotlinx.android.synthetic.main.fragment_main.*
@@ -21,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_main.*
 class MainFragment : Fragment() {
     val TAG = "MAINFragment"
     var passedNote: Note? = null
-    lateinit var usermodel:MainFragViewModel
+    lateinit var userModel:ViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,7 +33,7 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-         usermodel = ViewModelProvider(this).get(MainFragViewModel::class.java)
+         userModel = ViewModelProvider(this).get(ViewModel::class.java)
         // We don't need to observe change in data in this Fragment
         /*  usermodel.liveNote.observe(this, Observer {
             Log.e(TAG, usermodel.liveNote.value.toString())
@@ -69,12 +67,12 @@ class MainFragment : Fragment() {
                 val note = Note(title = noteTitle, note = noteBody)
 
                 if (passedNote == null){
-                    usermodel.addNote(note)
+                    userModel.addNote(note)
                     activity?.toast("Note Saved")
                 }
                 else{
                     note.id = passedNote!!.id
-                    usermodel.updateNote(note)
+                    userModel.updateNote(note)
                     activity?.toast("Note Updated")
                 }
 
@@ -105,7 +103,7 @@ class MainFragment : Fragment() {
             setTitle("Are you Sure?")
             setMessage("You cannot undo this action")
             setPositiveButton("Yes"){_,_ ->
-                usermodel.deleteNote(passedNote!!)
+                userModel.deleteNote(passedNote!!)
 
                 val action = MainFragmentDirections.actionSaveNote()
                 Navigation.findNavController(view!!).navigate(action)

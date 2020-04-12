@@ -19,7 +19,7 @@ class NotesAdapter(val allNotes: List<Note>):RecyclerView.Adapter<NotesViewHolde
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
         val currentItem = allNotes[position]
 
-        holder.clickon(currentItem)
+        holder.clickOn(currentItem)
     }
 
 }
